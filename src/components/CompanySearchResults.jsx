@@ -33,6 +33,7 @@ const CompanySearchResults = () => {
       <Row>
         <Col className="my-3">
           <h1 className="display-4">Job posting for: {params.company}</h1>
+          <Link to="/favorites">Vai alla pagina dei Preferiti!</Link>
           {jobs.map(jobData => (
             <Job key={jobData._id} data={jobData} />
           ))}

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Container, Row, Col, Form } from "react-bootstrap";
 import Job from "./Job";
+import { Link } from "react-router-dom";
 
 const MainSearch = () => {
   const [query, setQuery] = useState("");
@@ -19,6 +20,7 @@ const MainSearch = () => {
       const response = await fetch(baseEndpoint + query + "&limit=20");
       if (response.ok) {
         const { data } = await response.json();
+        console.log(data)
         setJobs(data);
       } else {
         alert("Error fetching results");
@@ -33,6 +35,7 @@ const MainSearch = () => {
       <Row>
         <Col xs={10} className="mx-auto my-3">
           <h1 className="display-1">Remote Jobs Search</h1>
+          <Link to="/favorites">Vai alla pagina dei Preferiti!</Link>
         </Col>
         <Col xs={10} className="mx-auto">
           <Form onSubmit={handleSubmit}>
